@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:c_woo_getx/global.dart';
 import 'common/index.dart';
 import 'common/routers/pages.dart';
 
-void main() {
+
+Future<void> main() async {
+  await Global.init();
   runApp(const MyApp());
 }
 
