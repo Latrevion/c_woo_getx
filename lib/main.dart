@@ -4,7 +4,6 @@ import 'package:c_woo_getx/global.dart';
 import 'common/index.dart';
 import 'common/routers/pages.dart';
 
-
 Future<void> main() async {
   await Global.init();
   runApp(const MyApp());
@@ -22,10 +21,17 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: RouteNames.systemSplash,
+      // initialRoute: RouteNames.systemSplash,
+      initialRoute: RouteNames.stylesStylesIndex,
       getPages: RoutePages.list,
       navigatorObservers: [RoutePages.observer],
-      // home: const MyHomePage(title: 'Flutter Demo Home Page11'),
+
+      // 多语言
+      translations: Translation(), // 词典
+      localizationsDelegates: Translation.localizationsDelegates, // 代理
+      supportedLocales: Translation.supportedLocales, // 支持的语言种类
+      locale: ConfigService.to.locale, // 当前语言种类
+      fallbackLocale: Translation.fallbackLocale, // 默认语言种类
     );
   }
 }
